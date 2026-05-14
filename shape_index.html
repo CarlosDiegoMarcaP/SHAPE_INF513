@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS shape-outside · Guía Visual</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,400;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="shape_style.css" />
+</head>
+
+<body>
+
+  <!-- Encabezado principal: contexto del tema y objetivo de la guía -->
+  <header aria-label="Introducción de shape-outside">
+    <div class="header-tag">CSS · Propiedades de Forma</div>
+    <h1>shape-<span>outside</span></h1>
+    <p>Aprende a crear flujos de texto alrededor de formas geométricas personalizadas. La propiedad shape-outside define cómo el contenido adyacente se ajusta a la silueta del elemento flotante.</p>
+  </header>
+
+  <!-- Contenido principal: una tarjeta por cada función de shape-outside -->
+  <main aria-label="Guía de funciones de shape-outside">
+
+    <!-- 1) circle(): forma circular -->
+    <section class="method-card card-1" aria-labelledby="method-circle-title">
+      <div class="method-header">
+        <span class="method-number">01</span>
+        <div>
+          <h2 id="method-circle-title">circle() - Forma Circular</h2>
+          <p class="method-desc">Crea un flujo de texto alrededor de un círculo perfecto.</p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <span class="com">/* El texto fluye alrededor de un círculo */</span>
+        .elemento { <br>
+        &nbsp;&nbsp;<span class="kw">float</span>: <span class="val">left</span>; <br>
+        &nbsp;&nbsp;<span class="kw">shape-outside</span>: <span class="val">circle(50%)</span>; <br>
+        &nbsp;&nbsp;<span class="kw">width</span>: <span class="val">130px</span>; <br>
+        &nbsp;&nbsp;<span class="kw">height</span>: <span class="val">130px</span>; <br>
+        }
+      </div>
+
+      <!-- Demo visual + recordatorio corto de sintaxis -->
+      <div class="demo-section">
+        <div class="demo-container">
+          <div class="float-circle" aria-hidden="true"></div>
+        </div>
+        <div class="code-info">
+          <strong>Sintaxis:</strong> circle(r) / circle(r at cx cy)
+        </div>
+      </div>
+
+      <div class="method-explain">
+        <p><strong>¿Qué hace?</strong> El texto abraza suavemente la forma redonda. Puedes ajustar el radio con <code>circle(60px)</code> o porcentaje <code>circle(50%)</code>.</p>
+        <p><strong>Variantes:</strong> Usa <code>circle(50% at 30% 30%)</code> para desplazar el centro de la forma sin mover el elemento físicamente.</p>
+      </div>
+    </section>
+
+    <!-- 2) ellipse(): forma ovalada -->
+    <section class="method-card card-2" aria-labelledby="method-ellipse-title">
+      <div class="method-header">
+        <span class="method-number">02</span>
+        <div>
+          <h2 id="method-ellipse-title">ellipse() - Forma Ovalada</h2>
+          <p class="method-desc">Crea un flujo de texto alrededor de una elipse con dos radios independientes.</p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <span class="com">/* Radio horizontal y vertical distintos */</span>
+        .elemento { <br>
+        &nbsp;&nbsp;<span class="kw">float</span>: <span class="val">left</span>; <br>
+        &nbsp;&nbsp;<span class="kw">shape-outside</span>: <span class="val">ellipse(50% 35%)</span>; <br>
+        &nbsp;&nbsp;<span class="kw">width</span>: <span class="val">160px</span>; <br>
+        &nbsp;&nbsp;<span class="kw">height</span>: <span class="val">110px</span>; <br>
+        }
+      </div>
+
+      <!-- Demo visual + recordatorio corto de sintaxis -->
+      <div class="demo-section">
+        <div class="demo-container">
+          <div class="float-ellipse" aria-hidden="true"></div>
+        </div>
+        <div class="code-info">
+          <strong>Sintaxis:</strong> ellipse(rx ry) / ellipse(rx ry at cx cy)
+        </div>
+      </div>
+
+      <div class="method-explain">
+        <p><strong>¿Qué hace?</strong> La función ellipse() acepta dos radios: horizontal (rx) y vertical (ry), separados por espacio. Ideal para imágenes apaisadas o verticales.</p>
+        <p><strong>Variantes:</strong> <code>ellipse(55% 40% at 40% 50%)</code> desplaza el centro hacia la izquierda, haciendo que el texto se acerque más al borde derecho.</p>
+      </div>
+    </section>
+
+    <!-- 3) polygon(): forma libre por vértices -->
+    <section class="method-card card-3" aria-labelledby="method-polygon-title">
+      <div class="method-header">
+        <span class="method-number">03</span>
+        <div>
+          <h2 id="method-polygon-title">polygon() - Forma Libre</h2>
+          <p class="method-desc">Crea un flujo de texto alrededor de una forma con múltiples vértices personalizados.</p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <span class="com">/* Triángulo: 3 puntos definidos */</span>
+        .elemento { <br>
+        &nbsp;&nbsp;<span class="kw">float</span>: <span class="val">left</span>; <br>
+        &nbsp;&nbsp;<span class="kw">shape-outside</span>: <span class="val">polygon(50% 0%, 100% 100%, 0% 100%)</span>; <br>
+        &nbsp;&nbsp;<span class="kw">clip-path</span>: <span class="val">polygon(50% 0%, 100% 100%, 0% 100%)</span>; <br>
+        &nbsp;&nbsp;<span class="kw">width</span>: <span class="val">140px</span>; <br>
+        &nbsp;&nbsp;<span class="kw">height</span>: <span class="val">140px</span>; <br>
+        }
+      </div>
+
+      <!-- Demo visual + recordatorio corto de sintaxis -->
+      <div class="demo-section">
+        <div class="demo-container">
+          <div class="float-polygon" aria-hidden="true"></div>
+        </div>
+        <div class="code-info">
+          <strong>Sintaxis:</strong> polygon(x1 y1, x2 y2, x3 y3, …)
+        </div>
+      </div>
+
+      <div class="method-explain">
+        <p><strong>¿Qué hace?</strong> Define una forma mediante una lista de coordenadas x y separadas por comas. Puedes crear triángulos, rombos, estrellas, hexágonos o cualquier silueta irregular.</p>
+        <p><strong>Combinación:</strong> Usa <code>clip-path</code> para que el elemento visualmente adopte esa forma también. Permite efectos creativos donde el texto sigue un contorno diferente al visual del elemento.</p>
+      </div>
+    </section>
+
+    <!-- 4) inset(): rectángulo interno con posible redondeo -->
+    <section class="method-card card-4" aria-labelledby="method-inset-title">
+      <div class="method-header">
+        <span class="method-number">04</span>
+        <div>
+          <h2 id="method-inset-title">inset() - Rectángulo Interno</h2>
+          <p class="method-desc">Crea un flujo de texto alrededor de un rectángulo con bordes opcionales redondeados.</p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <span class="com">/* Inset: top right bottom left + esquinas redondeadas */</span>
+        .elemento { <br>
+        &nbsp;&nbsp;<span class="kw">float</span>: <span class="val">left</span>; <br>
+        &nbsp;&nbsp;<span class="kw">shape-outside</span>: <span class="val">inset(15px 25px 15px 25px round 20px)</span>; <br>
+        &nbsp;&nbsp;<span class="kw">width</span>: <span class="val">150px</span>; <br>
+        &nbsp;&nbsp;<span class="kw">height</span>: <span class="val">120px</span>; <br>
+        }
+      </div>
+
+      <!-- Demo visual + recordatorio corto de sintaxis -->
+      <div class="demo-section">
+        <div class="demo-container">
+          <div class="float-inset" aria-hidden="true"></div>
+        </div>
+        <div class="code-info">
+          <strong>Sintaxis:</strong> inset(top right bottom left) / inset(top right bottom left round r)
+        </div>
+      </div>
+
+      <div class="method-explain">
+        <p><strong>¿Qué hace?</strong> Define un rectángulo hacia adentro del bounding box del elemento, usando los cuatro lados como margin o padding. La cláusula <code>round</code> añade bordes redondeados.</p>
+        <p><strong>Caso de uso:</strong> El texto se curva alrededor de las esquinas en lugar de seguir ángulos rectos. Perfecto para controlar el espacio de respiración entre la imagen y el texto.</p>
+      </div>
+    </section>
+
+    <!-- 5) url(): silueta tomada del alfa de imagen -->
+    <section class="method-card card-5" aria-labelledby="method-url-title">
+      <div class="method-header">
+        <span class="method-number">05</span>
+        <div>
+          <h2 id="method-url-title">url() - Forma desde Imagen</h2>
+          <p class="method-desc">Extrae la forma del canal alfa de una imagen PNG o SVG.</p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <span class="com">/* La silueta de la imagen marca dónde fluye el texto */</span>
+        .elemento { <br>
+        &nbsp;&nbsp;<span class="kw">float</span>: <span class="val">left</span>; <br>
+        &nbsp;&nbsp;<span class="kw">shape-outside</span>: <span class="val">url("imagen.png")</span>; <br>
+        &nbsp;&nbsp;<span class="kw">shape-image-threshold</span>: <span class="val">0.5</span>; <br>
+        &nbsp;&nbsp;<span class="kw">width</span>: <span class="val">140px</span>; <br>
+        &nbsp;&nbsp;<span class="kw">height</span>: <span class="val">140px</span>; <br>
+        }
+      </div>
+
+      <!-- Demo visual + recordatorio corto de sintaxis -->
+      <div class="demo-section">
+        <div class="demo-container">
+          <div class="float-url" aria-hidden="true"></div>
+        </div>
+        <div class="code-info">
+          <strong>Sintaxis:</strong> url("imagen.png") + shape-image-threshold: 0-1
+        </div>
+      </div>
+
+      <div class="method-explain">
+        <p><strong>¿Qué hace?</strong> El navegador lee el canal alfa de un PNG o SVG y usa esa silueta como forma de flujo. Los píxeles opacos definen dónde no puede entrar el texto; los transparentes dejan pasar el texto.</p>
+        <p><strong>Restricción:</strong> La imagen debe servirse desde el mismo origen o con cabeceras CORS correctas. Controla la opacidad con <code>shape-image-threshold</code> (0.5 = solo píxeles con alpha ≥ 50%).</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Cierre informativo de la guía -->
+  <footer aria-label="Pie de página de la guía">
+    CSS shape-outside · Guía Interactiva Completa | Hover sobre cada forma para ver el flujo de texto
+  </footer>
+
+</body>
+
+</html>
